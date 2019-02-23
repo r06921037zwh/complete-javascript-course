@@ -370,13 +370,13 @@ yearsUntilRetirement(1969, 'Jane');
 
 
 /*****************************
-* Function Statements and Expressions
+* Function Statements and Expressions (兩種不同的方程式宣布方式)
 */
 /*
-// Function declaration
+// (1) Function declaration
 // function whatDoYouDo(job, firstName) {}
 
-// Function expression
+// (2) Function expression
 var whatDoYouDo = function(job, firstName) {
     switch(job) {
         case 'teacher':
@@ -402,33 +402,33 @@ console.log(whatDoYouDo('retired', 'Mark'));
 */
 /*
 // Initialize new array
-var names = ['John', 'Mark', 'Jane'];
+var names = ['John', 'Mark', 'Jane']; // often used 
 var years = new Array(1990, 1969, 1948);
 
-console.log(names[2]);
-console.log(names.length);
+console.log(names[2]);  // Jane
+console.log(names.length); // 3
 
 // Mutate array data
-names[1] = 'Ben';
+names[1] = 'Ben'; 
 names[names.length] = 'Mary';
-console.log(names);
+console.log(names);  // ['John', 'Ben', 'Jane', 'Mary']
 
-// Different data types
+// Different data types (javascript array 可以同時儲存多種不同型態的資料)
 var john = ['John', 'Smith', 1990, 'designer', false];
 
-john.push('blue');
-john.unshift('Mr.');
+john.push('blue');  // ['John', 'Smith', 1990, 'designer', false, 'blue']; 從後面加入
+john.unshift('Mr.');  // ['Mr.', 'John', 'Smith', 1990, 'designer', false, 'blue']; 從前面加入
 console.log(john);
 
-john.pop();
-john.pop();
-john.shift();
+john.pop();  // ['Mr.', 'John', 'Smith', 1990, 'designer', false]; 移除最後一個
+john.pop();  // ['Mr.', 'John', 'Smith', 1990, 'designer'];
+john.shift();  // ['John', 'Smith', 1990, 'designer']; 移除第一個
 console.log(john);
 
-console.log(john.indexOf(23));
+console.log(john.indexOf(23)); // -1  不存在這個index，回傳-1
 
-var isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer';
-console.log(isDesigner);
+var isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer'; 
+console.log(isDesigner); // John IS a designer
 */
 
 
@@ -478,7 +478,7 @@ console.log(tips, finalValues);
 
 
 /*****************************
-* Objects and properties
+* Objects and properties (記得是key : value)，最後要加分號
 */
 /*
 // Object literal
