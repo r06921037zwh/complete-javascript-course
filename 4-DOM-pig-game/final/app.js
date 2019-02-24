@@ -11,12 +11,18 @@ GAME RULES:
 
 /*
 (1)
+document.getElementById('current-' + activePlayer).textContent = 0;                // 直接存取id的內容，裡面不用#
 document.querySelector('#current-' + activePlayer).textContent = 6;                // 直接改變內容
 document.querySelector('#current-' + activePlayer).innerHTML = <em> 6 </em>;       // 加入html內容
 
 var x = document.querySelector('#score-0').textContent;  // 取得html內容
 
 document.querySelector('.dice').style.display = 'none'; // 改變css屬性內容
+
+// 改變query的class，增加或減少，或是toggle(if not then add, if exists then remove)
+document.querySelector('.player-0-panel').classList.add('active');
+document.querySelector('.player-0-panel').classList.remove('active');
+document.querySelector('.player-1-panel').classList.toggle('active');
 */
 
 var scores, roundScore, activePlayer, gamePlaying;
@@ -126,7 +132,7 @@ function init() {
 YOUR 3 CHALLENGES
 Change the game to follow these rules:
 
-1. A player looses his ENTIRE score when he rolls two 6 in a row. After that, it's the next player's turn. (Hint: Always save the previous dice roll in a separate variable)
+1. A player loses his ENTIRE score when he rolls two 6 in a row. After that, it's the next player's turn. (Hint: Always save the previous dice roll in a separate variable)
 2. Add an input field to the HTML where players can set the winning score, so that they can change the predefined score of 100. (Hint: you can read that value with the .value property in JavaScript. This is a good oportunity to use google to figure this out :)
 3. Add another dice to the game, so that there are two dices now. The player looses his current score when one of them is a 1. (Hint: you will need CSS to position the second dice, so take a look at the CSS code for the first one.)
 */
