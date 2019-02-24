@@ -9,6 +9,16 @@ GAME RULES:
 
 */
 
+/*
+(1)
+document.querySelector('#current-' + activePlayer).textContent = 6;                // 直接改變內容
+document.querySelector('#current-' + activePlayer).innerHTML = <em> 6 </em>;       // 加入html內容
+
+var x = document.querySelector('#score-0').textContent;  // 取得html內容
+
+document.querySelector('.dice').style.display = 'none'; // 改變css屬性內容
+*/
+
 var scores, roundScore, activePlayer, gamePlaying;
 
 init();
