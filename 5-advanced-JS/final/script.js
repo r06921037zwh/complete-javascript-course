@@ -7,19 +7,19 @@ var john = {
     job: 'teacher'
 };
 
-var Person = function(name, yearOfBirth, job) {
+var Person = function(name, yearOfBirth, job) {      // Function constructor
     this.name = name;
     this.yearOfBirth = yearOfBirth;
     this.job = job;
 }
 
-Person.prototype.calculateAge  = function() {
+Person.prototype.calculateAge  = function() {        // add function into prototype for inheritance
     console.log(2016 - this.yearOfBirth);
 };
 
-Person.prototype.lastName = 'Smith';
+Person.prototype.lastName = 'Smith';                 // add properties into prototype for inheritance
 
-var john = new Person('John', 1990, 'teacher');
+var john = new Person('John', 1990, 'teacher');      // 'new' key word creates an empty object with a this pointer pointing to itself.
 var jane = new Person('Jane', 1969, 'designer');
 var mark = new Person('Mark', 1948, 'retired');
 
@@ -35,7 +35,7 @@ console.log(mark.lastName);
 
 
 /////////////////////////////
-// Lecture: Object.create
+// Lecture: Object.create (Another way to create object), recommended to use function constructor
 /*
 var personProto = {
     calculateAge: function() {
@@ -60,7 +60,7 @@ var jane = Object.create(personProto, {
 /////////////////////////////
 // Lecture: Primitives vs objects
 /*
-// Primitives
+// Primitives   (deep copy)
 var a = 23;
 var b = a;
 a = 46;
@@ -69,7 +69,7 @@ console.log(b);
 
 
 
-// Objects
+// Objects      (shallow copy)
 var obj1 = {
     name: 'John',
     age: 26
@@ -86,15 +86,15 @@ var obj = {
     city: 'Lisbon'
 };
 
-function change(a, b) {
+function change(a, b) {              
     a = 30;
     b.city = 'San Francisco';
 }
 
-change(age, obj);
-
-console.log(age);
-console.log(obj.city);
+change(age, obj); 
+ 
+console.log(age);                 // 27              when a primitive is passed into a function, a simple copy is created. The change in the function doesnot alter the value.
+console.log(obj.city);            // San Francisco   when a object is passed into a function, a reference is passed. The change in the function alter the results.
 */
 
 
