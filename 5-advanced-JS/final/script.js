@@ -168,13 +168,13 @@ designerQuestion('jane');
 designerQuestion('Mark');
 designerQuestion('Mike');
 
-interviewQuestion('teacher')('Mark');
+interviewQuestion('teacher')('Mark'); // we can use this function right after the returning
 */
 
 
 
 /////////////////////////////
-// Lecture: IIFE
+// Lecture: IIFE (Immediately Invoked Function Expression), 保持privacy, variable cannot be accessed from outside
 /*
 function game() {
     var score = Math.random() * 10;
@@ -182,19 +182,19 @@ function game() {
 }
 game();
 
-
+//用括號包起來的部分，JS會視為是expression而不是declaration，後面加的括號可以直接執行此函式。
 (function () {
     var score = Math.random() * 10;
     console.log(score >= 5);
 })();
 
-//console.log(score);
+//console.log(score);  // error, outside the scope,score can not be accessed
 
 
-(function (goodLuck) {
+(function (goodLuck) {                     // 參數傳遞的方式，仔細看
     var score = Math.random() * 10;
     console.log(score >= 5 - goodLuck);
-})(5);
+})(5);                                     // 參數直接放在後面的括號裡
 */
 
 
@@ -202,6 +202,9 @@ game();
 /////////////////////////////
 // Lecture: Closures
 /*
+//在inner anonymous function 回傳後，a和retirement這些變數內容依然存在，稱為closures
+// summary: An inner function has always access to the variables and parameters of its outside function, even after outside function has returned.
+// which means the scope chain always stay intact (unchanged)
 function retirement(retirementAge) {
     var a = ' years left until retirement.';
     return function(yearOfBirth) {
@@ -262,11 +265,11 @@ var emily = {
 
 john.presentation('formal', 'morning');
 
-john.presentation.call(emily, 'friendly', 'afternoon');
+john.presentation.call(emily, 'friendly', 'afternoon');               // method borrowing
 
-//john.presentation.apply(emily, ['friendly', 'afternoon']);
+//john.presentation.apply(emily, ['friendly', 'afternoon']);          // second argument should be an array
 
-var johnFriendly = john.presentation.bind(john, 'friendly');
+var johnFriendly = john.presentation.bind(john, 'friendly');          // bind allows us to preset some arguments
 
 johnFriendly('morning');
 johnFriendly('night');
@@ -295,7 +298,7 @@ function isFullAge(limit, el) {
 }
 
 var ages = arrayCalc(years, calculateAge);
-var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
+var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20)); // this is always the first argument of bind
 console.log(ages);
 console.log(fullJapan);
 */
